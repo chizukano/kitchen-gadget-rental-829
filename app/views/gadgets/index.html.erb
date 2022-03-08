@@ -3,7 +3,7 @@
   <br>
   <ul class="list-unstyled">
     <% @gadgets.each do |gadget| %>
-      <li><strong><%= gadget.name %></strong></li>
+      <li><strong><%= link_to gadget.name, gadget_path(gadget) %></strong></li>
       <li><%= gadget.description %></li>
       <hr>
     <% end %>
