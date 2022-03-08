@@ -12,9 +12,10 @@ class BookingsController < ApplicationController
   def create
     @gadget = Gadget.find(params[:gadget_id])
     @booking = Booking.new(booking_params)
-    @gadget.booking = @booking
+    @booking.gadget = @gadget
+    @booking.customer = current_user
 
-    if @booking.save
+    if @booking.save!
       redirect_to booking_path(@booking)
     else
       render :new
