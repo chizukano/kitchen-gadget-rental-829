@@ -4,18 +4,21 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @gadget = Gadget.find(params[:id])
+  end
+
   def create
     @gadget = Gadget.find(params[:gadget_id])
     @booking = Booking.new(booking_params)
     @gadget.booking = @booking
-    @booking.save
 
-    #For the future link for bookings/show page
-    # if @booking.saves
-    #   redirect_to booking_path(@booking)
-    # else
-    #   render :new
-    # end
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   private
