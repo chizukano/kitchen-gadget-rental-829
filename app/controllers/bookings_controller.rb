@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-    @gadget = Gadget.find(params[:id])
+    @gadget = @booking.gadget
   end
 
   def create
