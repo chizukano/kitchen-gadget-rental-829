@@ -25,6 +25,6 @@ puts "creating 10 fake bookings"
     gadget: gadgets.sample,
     customer: customers.sample,
   )
-  booking.save!
+  booking.save
 end
 puts "done"
