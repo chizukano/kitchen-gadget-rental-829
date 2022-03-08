@@ -19,11 +19,12 @@ puts "done!"
 
 puts "creating 10 fake bookings"
 10.times do
-  Booking.create!(
+  booking = Booking.create!(
     start_on: Faker::Date.between(from: '2021-03-01', to: '2021-03-31'),
     end_on: Faker::Date.between(from: '2021-04-01', to: '2021-04-30'),
     gadget: gadgets.sample,
     customer: customers.sample,
   )
+  booking.save!
 end
 puts "done"
