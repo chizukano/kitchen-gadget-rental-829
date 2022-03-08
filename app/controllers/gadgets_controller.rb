@@ -14,7 +14,7 @@ class GadgetsController < ApplicationController
   def create
     @gadget = Gadget.new(gadget_params)
     @gadget.owner = current_user
-    if @gadget.save!
+    if @gadget.save
       redirect_to gadgets_path
     else
       render :new
