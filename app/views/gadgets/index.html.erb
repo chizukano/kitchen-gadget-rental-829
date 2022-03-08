@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>List of gadgets</h1>
+  <br>
+  <ul class="list-unstyled">
+    <% @gadgets.each do |gadget| %>
+      <li><strong><%= gadget.name %></strong></li>
+      <li><%= gadget.description %></li>
+      <hr>
+    <% end %>
+  </ul>
+</div>
