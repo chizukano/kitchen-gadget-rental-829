@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @gadget = Gadget.find(params[:gadget_id])
     @booking = Booking.new(booking_params)
     @gadget.booking = @booking
-    @booking.saves
+    @booking.save
 
     #For the future link for bookings/show page
     # if @booking.saves
