@@ -13,10 +13,13 @@ class GadgetsController < ApplicationController
         )
       }
     end
+   @gadgets = policy_scope(Gadget)
+
   end
 
   def show
     @gadget = Gadget.find(params[:id])
+    authorize @gadget
   end
 
   def new
