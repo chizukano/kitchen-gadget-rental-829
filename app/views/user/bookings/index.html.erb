@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>All my bookings</h1>
+  <p>Here are the gadgets you have booked so far...</p>
+  <br>
+
+  <ul class="list-unstyled">
+    <% @bookings.each do |booking| %>
+      <li><strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
+      <li><%= booking.gadget.description %></li>
+      <br>
+      <li><strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %></li>
+      <hr>
+    <% end %>
+  </ul>
+
+  <p><%= link_to "Back to gadgets list", gadgets_path, class: "btn btn-outline-primary" %></p>
+</div>
