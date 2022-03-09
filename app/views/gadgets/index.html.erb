@@ -12,6 +12,7 @@
     <% @gadgets.each do |gadget| %>
       <li><strong><%= link_to gadget.name, gadget_path(gadget) %></strong></li>
       <li><%= gadget.description %></li>
+      <%= render "gadgets/photo", photo: gadget.photo %>
       <hr>
     <% end %>
   </ul>

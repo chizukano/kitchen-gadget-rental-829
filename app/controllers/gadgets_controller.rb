@@ -42,6 +42,6 @@ class GadgetsController < ApplicationController
   private
 
   def gadget_params
-    params.require(:gadget).permit(:name, :description)
+    params.require(:gadget).permit(:name, :description, :photo)
   end
 end
