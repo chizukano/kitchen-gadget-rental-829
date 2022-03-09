@@ -1,14 +1,18 @@
 <br><br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card text-center">
+        <div class="card-header bg-success">
+          Item Booked
+        </div>
+        <div class="card-body bg-success p-2 text-dark bg-opacity-10">
+          <h5 class="card-title "><%= @gadget.name %></h5>
+          <p class="card-text">From <%= @booking.start_on  %> Till &nbsp <%= @booking.end_on  %></p>
 
-<div class="card text-center  my-card justify-content:center " style="width:50%" >
-  <div class="card-header bg-success">
-    Item Booked
+          <%= link_to "My Booking", new_gadget_booking_path(@booking), class: "btn btn-outline-success" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-    <h5 class="card-title "><%= @gadget.name %></h5>
-    <p class="card-text">From <%= @booking.start_on  %> Till &nbsp <%= @booking.end_on  %></p>
-
-    <%= link_to "My Booking", new_gadget_booking_path(@booking), class: "btn btn-outline-success" %>
-  </div>
-</div>
 </div>
