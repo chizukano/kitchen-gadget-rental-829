@@ -2,7 +2,19 @@ class GadgetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @gadgets = policy_scope(Gadget)
+    @gadgets = Gadget.all
+
+    @markers = @gadgets.geocoded.map do |gadget|
+      { lat: gadget.latitude,
+        lng: gadget.longitude,
+        info_window: render_to_string(
+          partial: "info_window",
+          locals: { gadget: gadget }
+        )
+      }
+    end
+   @gadgets = policy_scope(Gadget)
+
   end
 
   def show

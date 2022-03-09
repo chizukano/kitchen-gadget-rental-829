@@ -11,4 +11,20 @@ class User < ApplicationRecord
 
   has_many :customer_bookings, foreign_key: :customer_id, class_name: "Booking"
   has_many :booked_gadgets, class_name: "Gadget", through: :customer_bookings, source: :gadget
+
+  before_save :update_gadgets_geocoding!, if: :will_save_change_to_address?
+
+  private
+
+  def update_gadgets_geocoding!
+    return if owned_gadgets.empty?
+
+    first_gadget = owned_gadgets.first
+    first_gadget.geocode
+
+    owned_gadgets.update_all(
+      latitude: first_gadget.latitude,
+      longitude: first_gadget.longitude
+    )
+  end
 end
