@@ -3,6 +3,7 @@
   <hr>
   <br>
   <p><%= @gadget.description  %></p>
+  <%= render "gadgets/photo", photo: @gadget.photo %>
   <br>
   <p><%= link_to "Back", gadgets_path %></p>
 </div>

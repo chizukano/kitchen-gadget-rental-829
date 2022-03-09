@@ -3,6 +3,7 @@
   <%= simple_form_for [@gadget] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Submit listing", class: "btn btn-primary" %>
   <% end %>
 </div>

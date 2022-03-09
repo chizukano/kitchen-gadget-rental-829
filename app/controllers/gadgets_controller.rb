@@ -12,11 +12,14 @@ class GadgetsController < ApplicationController
 
   def new
     @gadget = Gadget.new
+    authorize @gadget
   end
 
   def create
     @gadget = Gadget.new(gadget_params)
     @gadget.owner = current_user
+    authorize @gadget
+
     if @gadget.save
       redirect_to gadgets_path
     else
@@ -27,6 +30,6 @@ class GadgetsController < ApplicationController
   private
 
   def gadget_params
-    params.require(:gadget).permit(:name, :description)
+    params.require(:gadget).permit(:name, :description, :photo)
   end
 end
