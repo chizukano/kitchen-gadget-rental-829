@@ -3,6 +3,13 @@ class GadgetsController < ApplicationController
 
   def index
     @gadgets = Gadget.all
+
+    @markers = @gadgets.geocoded.map do |gadget|
+      {
+        lat: gadget.latitude,
+        lng: gadget.longitude
+      }
+    end
   end
 
   def show

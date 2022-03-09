@@ -9,11 +9,15 @@ puts "done!"
 puts "creating 15 fake gadgets"
 gadgets_name = %w[knives tongs frying-pan saucepan stockpot can-opener salad-spinner]
 gadgets = 15.times.map do
-  Gadget.create!(
+  gadget = Gadget.create(
     name: gadgets_name.sample,
     description: Faker::Lorem.sentence(word_count: rand(5..20)),
-    owner: owner
+    owner: owner,
+    latitude: rand(19.4108923..19.416905),
+    longitude: rand(-99.1720769..-99.1606911)
   )
+  gadget.save!(validate: false)
+  gadget
 end
 puts "done!"
 
