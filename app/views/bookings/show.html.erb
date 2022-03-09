@@ -1,9 +1,17 @@
-<div class="container">
-  <h1> Item rented &nbsp  <%= @gadget.name %></h1>
-  <hr>
-  <br>
-  <h2>Start date for  &nbsp <%= @booking.start_on  %></h2>
+<br><br>
+<div class="card text-center  justify-content:center" style="width: 50rem;">
+  <div class="card-header bg-success">
+    Item Booked
+  </div>
+  <div class="card-body bg-success p-2 text-dark bg-opacity-10">
+    <h5 class="card-title "><%= @gadget.name %></h5>
+    <p class="card-text">From <%= @booking.start_on  %> Till &nbsp <%= @booking.end_on  %></p>
 
-  <p> End On  &nbsp<%= @booking.end_on  %></p>
+    <%= link_to "My Booking", new_gadget_booking_path(@booking), class: "btn btn-outline-primary" %>
+
+    <%# <a href="#" class="bg-success p-2 text-white bg-opacity-75">My Bookings</a> %>
+  </div>
+  <%# <div class="card-footer text-muted">
+    2 days ago
+  </div> %>
 </div>
-
