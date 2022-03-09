@@ -3,6 +3,7 @@ class GadgetsController < ApplicationController
 
   def index
     @gadgets = Gadget.all
+    @gadgets = policy_scope(Gadget)
 
     @markers = @gadgets.geocoded.map do |gadget|
       { lat: gadget.latitude,
@@ -13,8 +14,6 @@ class GadgetsController < ApplicationController
         )
       }
     end
-   @gadgets = policy_scope(Gadget)
-
   end
 
   def show
