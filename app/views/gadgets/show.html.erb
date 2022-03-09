@@ -5,5 +5,6 @@
   <p><%= @gadget.description  %></p>
   <%= render "gadgets/photo", photo: @gadget.photo %>
   <br>
+  <br>
  <p><%= link_to "Book Gadget", new_gadget_booking_path(@gadget), class: "btn btn-outline-primary" %></p>
 </div>

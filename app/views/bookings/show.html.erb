@@ -7,7 +7,7 @@
     <h5 class="card-title "><%= @gadget.name %></h5>
     <p class="card-text">From <%= @booking.start_on  %> Till &nbsp <%= @booking.end_on  %></p>
 
-    <%= link_to "My Booking", new_gadget_booking_path(@booking), class: "btn btn-outline-success" %>
+    <%= link_to "My Booking", gadget_bookings_path(@gadget), class: "btn btn-outline-success" %>
   </div>
 </div>
 <%# bg-success p-2 text-white bg-opacity-75" %>

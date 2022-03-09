@@ -1,9 +1,4 @@
 class BookingsController < ApplicationController
-  def index
-    @bookings = Booking.where(customer: current_user)
-    @gadgets = policy_scope(Booking)
-  end
-
   def show
     @booking = Booking.find(params[:id])
     @gadget = @booking.gadget
