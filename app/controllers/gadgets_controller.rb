@@ -2,11 +2,12 @@ class GadgetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @gadgets = Gadget.all
+    @gadgets = policy_scope(Gadget)
   end
 
   def show
     @gadget = Gadget.find(params[:id])
+    authorize @gadget
   end
 
   def new
