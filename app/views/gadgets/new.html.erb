@@ -1,0 +1,8 @@
+<div class="container">
+<h1>Add your gadget to be listed</h1>
+  <%= simple_form_for [@gadget] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit "Submit listing", class: "btn btn-primary" %>
+  <% end %>
+</div>
