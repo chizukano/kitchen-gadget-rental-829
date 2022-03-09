@@ -24,11 +24,14 @@ class GadgetsController < ApplicationController
 
   def new
     @gadget = Gadget.new
+    authorize @gadget
   end
 
   def create
     @gadget = Gadget.new(gadget_params)
     @gadget.owner = current_user
+    authorize @gadget
+
     if @gadget.save
       redirect_to gadgets_path
     else
