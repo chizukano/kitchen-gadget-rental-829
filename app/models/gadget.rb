@@ -4,7 +4,7 @@ class Gadget < ApplicationRecord
   geocoded_by :address
 
   delegate :address, to: :owner
-  after_validation :geocode
+  before_create :geocode
 
   # def address
   #   owner.address

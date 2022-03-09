@@ -5,9 +5,12 @@ class GadgetsController < ApplicationController
     @gadgets = Gadget.all
 
     @markers = @gadgets.geocoded.map do |gadget|
-      {
-        lat: gadget.latitude,
-        lng: gadget.longitude
+      { lat: gadget.latitude,
+        lng: gadget.longitude,
+        info_window: render_to_string(
+          partial: "info_window",
+          locals: { gadget: gadget }
+        )
       }
     end
   end

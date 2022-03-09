@@ -7,7 +7,7 @@
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
+  <br>
   <ul class="list-unstyled">
     <% @gadgets.each do |gadget| %>
       <li><strong><%= link_to gadget.name, gadget_path(gadget) %></strong></li>
