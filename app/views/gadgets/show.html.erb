@@ -1,10 +1,15 @@
 <div class="container">
-  <h1><%= @gadget.name  %></h1>
-  <hr>
-  <br>
-  <p><%= @gadget.description  %></p>
-  <%= render "gadgets/photo", photo: @gadget.photo %>
-  <br>
-  <br>
- <p><%= link_to "Book Gadget", new_gadget_booking_path(@gadget), class: "btn btn-outline-primary" %></p>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <h1><%= @gadget.name  %></h1>
+      <hr>
+      <br>
+      <%= render "gadgets/photo", photo: @gadget.photo %>
+      <br>
+      <p><%= @gadget.description  %></p>
+    </div>
+    <div class="col-12 col-lg-4">
+      <%= render "bookings/form_new_booking", gadget: @gadget, booking: @booking %>
+    </div>
+  </div>
 </div>
