@@ -1,8 +1,7 @@
 <div class="container">
-
-  <h2>Let's book <%= @gadget.name %>!</h2>
+  <h2>Book now!</h2>
   <hr>
-  <%= simple_form_for [ @gadget, @booking ] do |f| %>
+  <%= simple_form_for [ gadget, booking ] do |f| %>
     <%= f.input :start_on, as: :date, label: "Starting date:" %>
     <%= f.input :end_on, as: :date, label: "Returning date:"  %>
     <br>
