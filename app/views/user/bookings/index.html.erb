@@ -1,42 +1,57 @@
-<div class="container">
-  <div>
-    <% if current_user.customer_bookings.exists? %>
-      <h2>Reservation Summary</h2>
-      <p>Here are the items you have booked...</p>
-      <br>
-      <ul class="list-group">
-        <% current_user.customer_bookings.each do |booking| %>
-          <li class="list-group-item"><strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
-          <li class="list-group-item"><strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %></li>
-          <hr>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+<div class="container d-flex justify-content-around">
+  <div class="d-flex">
+    <div class="p-3 m-3">
+      <% if current_user.customer_bookings.exists? %>
+        <p class="h5"><strong>Reservation Summary</strong></p>
+        <p>Confirmed reservations:</p>
 
-  <div>
-    <% if current_user.owner_bookings.exists? %>
-    <h2>Booking requests coming up</h2>
-    <p>Pending requests:</p>
-    <hr>
-    <ul class="list-group">
-      <% current_user.owner_bookings.pending.each do |booking| %>
-        <%= render "pending_card", booking: booking %>
-      <% end %>
-    </ul>
-    <br>
-    <p>Confirmed items:</p>
-    <hr>
-    <ul class="list-group">
-      <% current_user.owner_bookings.approved.each do |booking| %>
-        <li class="list-group-item">
-          <strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
+        <% current_user.customer_bookings.each do |booking| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+              <p><strong>Booked Dates</strong>:<br>
+                <%= booking.start_on %> to <%= booking.end_on %></p>
+            </div>
+          </div>
           <br>
-          <strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %>
+        <% end %>
       <% end %>
-    </ul>
-    <% end  %>
+    </div>
+
+    <div class="p-3 m-3">
+      <% if current_user.owner_bookings.exists? %>
+      <p class="h5"><strong>Rental Request Summary</strong></p>
+      <p>Pending requests:</p>
+
+        <% current_user.owner_bookings.pending.each do |booking| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+                    <%= render "pending_card", booking: booking %>
+            </div>
+          </div>
+          <br>
+        <% end %>
+
+      <br>
+      <p>Confirmed requests:</p>
+        <% current_user.owner_bookings.approved.each do |booking| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+              <p><strong>Booked Dates</strong>:<br>
+              <%= booking.start_on %> to <%= booking.end_on %></p>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      <% end  %>
+    </div>
   </div>
-  <br>
-  <p><%= link_to "Back to List", gadgets_path, class: "btn btn-outline-primary" %></p>
+</div>
+
+<div class="container">
+  <p class="d-flex justify-content-center"><%= link_to "Back to List", gadgets_path, class: "btn btn-outline-primary" %></p>
 </div>

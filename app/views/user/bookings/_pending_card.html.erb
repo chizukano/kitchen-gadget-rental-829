@@ -1,8 +1,7 @@
-<li class="list-group-item">
-  <strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
-  <br>
-  <strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %>
-  <br>
+<h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+<p><strong>Booked Dates</strong>:<br>
+<%= booking.start_on %> to <%= booking.end_on %></p>
+<p>
   <%= link_to "Accept", approve_user_booking_path(booking), method: :patch %>
   <%= link_to "Reject", reject_user_booking_path(booking), method: :patch %>
-</li>
+</p>
