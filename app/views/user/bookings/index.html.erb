@@ -1,10 +1,27 @@
 <div class="container">
-  <h1>All my bookings</h1>
-  <p>Here are the gadgets you have booked so far...</p>
-  <br>
+  <% if current_user.customer_bookings.exists? %>
+    <h1>Reservation Summary</h1>
+    <p>Here are the items you have booked...</p>
+    <br>
+    <ul class="list-unstyled">
+      <% current_user.customer_bookings.each do |booking| %>
+        <li><strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
+        <li><%= booking.gadget.description %></li>
+        <br>
+        <li><strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %></li>
+        <hr>
+      <% end %>
+    </ul>
+  <% end %>
 
+</div>
+
+<div class="container">
+  <h1>Booking requests coming up</h1>
+  <p>Pending requests:</p>
+  <hr>
   <ul class="list-unstyled">
-    <% @bookings.each do |booking| %>
+    <% current_user.owner_bookings.each do |booking| %>
       <li><strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
       <li><%= booking.gadget.description %></li>
       <br>
@@ -13,5 +30,17 @@
     <% end %>
   </ul>
 
-  <p><%= link_to "Back to gadgets list", gadgets_path, class: "btn btn-outline-primary" %></p>
+  <p>Confirmed items:</p>
+  <hr>
+  <ul class="list-unstyled">
+    <% current_user.owner_bookings.each do |booking| %>
+      <li><strong><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></strong>
+      <li><%= booking.gadget.description %></li>
+      <br>
+      <li><strong>Booked Dates</strong> <%= booking.start_on %> to <%= booking.end_on %></li>
+      <hr>
+    <% end %>
+  </ul>
 </div>
+
+<p><%= link_to "Back to gadgets list", gadgets_path, class: "btn btn-outline-primary" %></p>
