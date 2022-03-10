@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   # /user
   namespace :user do
     # .../bookings
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index] do
+      patch "approve", on: :member
+      patch "reject", on: :member
+    end
   end
 
   devise_for :users

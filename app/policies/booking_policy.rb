@@ -17,4 +17,12 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def approve?
+    record.owner == user
+  end
+
+  def reject?
+    record.owner == user
+  end
 end
