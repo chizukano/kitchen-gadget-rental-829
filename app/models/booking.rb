@@ -12,4 +12,7 @@ class Booking < ApplicationRecord
   scope :current, -> { where("? BETWEEN start_on AND end_on", Date.current) }
   scope :past, -> { where("? > end_on", Date.current) }
   scope :upcoming, -> { where("? < start_on", Date.current) }
+
+
+  validates :start_on, :end_on, presence: true
 end
