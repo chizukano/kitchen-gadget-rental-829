@@ -12,7 +12,8 @@
   <div class="cards">
     <% @gadgets.each do |gadget| %>
       <%= link_to gadget_path(gadget), class: "card" do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= omni_image_path gadget.photo, height: 600, width: 800, crop: :fill, class: "img-fluid" %>')"
+        >
           <%= gadget.name %>
 
           <div class="card-details">
@@ -22,5 +23,5 @@
       <% end %>
     <% end %>
   </div>
-        <%# <%= render "gadgets/photo", photo: gadget.photo %> 
+        <%# <%= render "gadgets/photo", photo: gadget.photo %>
 </div>
