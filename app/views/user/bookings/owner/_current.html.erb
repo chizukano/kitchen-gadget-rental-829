@@ -1,4 +1,11 @@
 <h3 class="h6">Currently Rented:</h3 >
 <% current_user.owner_bookings.approved.current.each do |booking| %>
-  <%= render "bookings/card", booking: booking %>
+  <div class="card-product m-1">
+    <img src="<%= cl_image_path booking.gadget.photo.key, height: 100, width: 100, crop: :fill %>" />
+    <div class="card-product-infos">
+      <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+      <p><strong>Booked Dates</strong>:<br>
+      <%= booking.start_on %> to <%= booking.end_on %></p>
+    </div>
+  </div>
 <% end %>

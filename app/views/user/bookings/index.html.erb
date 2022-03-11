@@ -1,5 +1,5 @@
-<div class="container d-flex">
-  <div>
+<div class="container d-flex justify-content-center">
+  <div class="mx-3">
     <% if current_user.owner_bookings.exists? %>
       <h1 class="h5"><strong>Your Rentals</strong></h1>
       <%= render "pending_card"%>
@@ -7,7 +7,7 @@
       <%= render "user/bookings/owner/past" %>
     <% end %>
   </div>
-    <div>
+    <div class="mx-3">
       <% if current_user.customer_bookings.exists? %>
         <p class="h5"><strong>Your Reservations</strong></p>
         <%= render "user/bookings/customer/current" %>
