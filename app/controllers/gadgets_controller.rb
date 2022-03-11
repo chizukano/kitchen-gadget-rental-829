@@ -18,6 +18,7 @@ class GadgetsController < ApplicationController
 
   def show
     @gadget = Gadget.find(params[:id])
+    @booking = Booking.new
     authorize @gadget
   end
 
