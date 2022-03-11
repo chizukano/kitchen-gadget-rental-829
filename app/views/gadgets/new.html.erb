@@ -5,7 +5,7 @@
   <%= f.input :name, label: "Gadget's name:" %>
   <%= f.input :description, label: "Add a brief decription of the gadget:" %>
 
-  <%= f.simple_fields_for :owner_attributesq do |fu| %>
+  <%= f.simple_fields_for :owner_attributes do |fu| %>
     <%= fu.input :address, label: "Register its location:", input_html: {value: current_user.address} %>
   <% end %>
   <br>
