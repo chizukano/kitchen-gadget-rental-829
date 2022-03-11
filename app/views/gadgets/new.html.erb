@@ -4,7 +4,10 @@
   <%= simple_form_for [@gadget] do |f| %>
   <%= f.input :name, label: "Gadget's name:" %>
   <%= f.input :description, label: "Add a brief decription of the gadget:" %>
-  <%= f.input :address, label: "Add your location:" %>
+
+  <%= f.simple_fields_for :owner_attributesq do |fu| %>
+    <%= fu.input :address, label: "Register its location:", input_html: {value: current_user.address} %>
+  <% end %>
   <br>
   <%= f.input :photo, as: :file %>
   <br>
