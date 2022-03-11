@@ -1,7 +1,16 @@
-<h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
-<p><strong>Booked Dates</strong>:<br>
-<%= booking.start_on %> to <%= booking.end_on %></p>
-<p>
-  <%= link_to "Accept", approve_user_booking_path(booking), method: :patch %>
-  <%= link_to "Reject", reject_user_booking_path(booking), method: :patch %>
-</p>
+<h3 class="h6">Pending Requests:</h3 >
+  <% current_user.owner_bookings.pending.each do |booking| %>
+    <div class="pending-card-product m-1">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+        <p class="h6">Starting in: <%= distance_of_time_in_words_to_now(booking.start_on) %></p>
+        <p><strong>Booked Dates</strong>:<br>
+        <%= booking.start_on %> to <%= booking.end_on %></p>
+        <p>
+          <%= link_to "Accept", approve_user_booking_path(booking), method: :patch %>
+          <%= link_to "Reject", reject_user_booking_path(booking), method: :patch %>
+        </p>
+      </div>
+    </div>
+  <% end %>
