@@ -2,16 +2,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8">
-      <div class="card text-center">
-        <div class="card-header bg-success">
+      <div class="card">
+        <div class="card-header  text-center my-show-heading h4"  >
           Item Booked
         </div>
-        <div class="card-body bg-success p-2 text-dark bg-opacity-10">
-          <h5 class="card-title "><%= @gadget.name %></h5>
-          <p class="card-text">From <%= @booking.start_on  %> Till &nbsp <%= @booking.end_on  %></p>
 
-          <%= link_to "My Booking", user_bookings_path, class: "btn btn-outline-success" %>
-        </div>
+
+        <%= render "bookings/card", booking: @booking %>
+        <%= link_to "My Booking", user_bookings_path, class: "btn btn-outline-primary top-squared" %>
+
       </div>
     </div>
   </div>
