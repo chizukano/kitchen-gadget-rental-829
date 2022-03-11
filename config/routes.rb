@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
- resources :gadgets, only: %i[index show new create] do
-    resources :bookings, only: [:new, :create]
+  resources :gadgets, only: %i[index show new create] do
+    resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: %i[show]
 
   # /user
   namespace :user do

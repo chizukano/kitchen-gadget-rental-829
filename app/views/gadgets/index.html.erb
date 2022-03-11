@@ -8,12 +8,19 @@
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <br>
-  <ul class="list-unstyled">
+
+  <div class="cards">
     <% @gadgets.each do |gadget| %>
-      <li><strong><%= link_to gadget.name, gadget_path(gadget) %></strong></li>
-      <li><p><%= gadget.description %></P></li>
-      <%= render "gadgets/photo", photo: gadget.photo %>
-      <hr>
+      <%= link_to gadget_path(gadget), class: "card" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= gadget.name %>
+
+          <div class="card-details">
+            <%= gadget.description %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
+        <%# <%= render "gadgets/photo", photo: gadget.photo %> 
 </div>

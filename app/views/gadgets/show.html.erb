@@ -1,10 +1,18 @@
-<div class="container">
-  <h1><%= @gadget.name  %></h1>
-  <hr>
-  <br>
-  <p><%= @gadget.description  %></p>
-  <%= render "gadgets/photo", photo: @gadget.photo %>
-  <br>
-  <br>
- <p><%= link_to "Book Gadget", new_gadget_booking_path(@gadget), class: "btn btn-outline-primary" %></p>
+<div class="container mb-3">
+  <h1 class="border-bottom"><%= @gadget.name  %></h1>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <%= omni_image_tag @gadget.photo, height: 600, width: 800, crop: :fill, class: "img-fluid" %>
+      <br>
+    </div>
+    <div class="col-12 col-lg-4">
+      <p>
+        <i class="fas fa-map-pin"></i>
+        <%= @gadget.address %>
+      </p>
+      <p><%= @gadget.description  %></p>
+      <hr>
+      <%= render "bookings/form_new_booking", gadget: @gadget, booking: @booking %>
+    </div>
+  </div>
 </div>
