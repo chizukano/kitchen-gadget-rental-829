@@ -1,10 +1,7 @@
-<div class="container">
-  <h2>Book now!</h2>
-  <hr>
-  <%= simple_form_for [ gadget, booking ] do |f| %>
-    <%= f.input :start_on, as: :date, html5: true, label: "Pickup date:", input_html: { "data-controller": "flatpickr" } %>
-    <%= f.input :end_on, as: :date, html5: true, label: "Return date:", input_html: { "data-controller": "flatpickr" }  %>
-    <br>
-    <%= f.submit "Confirm booking" %>
-  <% end %>
-</div>
+<h2 class="border-bottom">Book now!</h2>
+<%= simple_form_for [ gadget, booking ] do |f| %>
+  <%= f.input :start_on, as: :date, html5: true, label: "Pickup date:", input_html: { "data-controller": "flatpickr" } %>
+  <%= f.input :end_on, as: :date, html5: true, label: "Return date:", input_html: { "data-controller": "flatpickr" }  %>
+  <br>
+  <%= f.submit "Confirm booking" %>
+<% end %>
