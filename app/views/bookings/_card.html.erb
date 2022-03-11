@@ -1,0 +1,10 @@
+<div class="card-product m-1">
+  <img src="<%= cl_image_path booking.gadget.photo.key, height: 100, width: 100, crop: :fill %>" />
+  <div class="card-product-infos">
+    <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
+    <p><strong>Booked Dates</strong>:<br>
+    <%= booking.start_on %> to <%= booking.end_on %></p>
+
+     <P>Booking starts &nbsp</P><%=  distance_of_time_in_words_to_now(booking.start_on) %>
+  </div>
+</div>
