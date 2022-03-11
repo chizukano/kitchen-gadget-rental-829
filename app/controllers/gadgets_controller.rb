@@ -19,7 +19,18 @@ class GadgetsController < ApplicationController
   def show
     @gadget = Gadget.find(params[:id])
     @booking = Booking.new
+
     authorize @gadget
+
+    @markers = [
+      { lat: @gadget.latitude,
+        lng: @gadget.longitude,
+        info_window: render_to_string(
+          partial: "info_window",
+          locals: { gadget: @gadget }
+        )
+      }
+    ]
   end
 
   def new
