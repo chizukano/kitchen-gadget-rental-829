@@ -35,12 +35,14 @@ class GadgetsController < ApplicationController
 
   def new
     @gadget = Gadget.new
+    @gadget.owner = current_user
     authorize @gadget
   end
 
   def create
     @gadget = Gadget.new(gadget_params)
     @gadget.owner = current_user
+    @gadget.owner.update(owner_params) unless owner_params[:address].blank?
     authorize @gadget
 
     if @gadget.save
@@ -54,5 +56,9 @@ class GadgetsController < ApplicationController
 
   def gadget_params
     params.require(:gadget).permit(:name, :description, :photo)
+  end
+
+  def owner_params
+    params[:gadget].require(:owner_attributes).permit(:address)
   end
 end
