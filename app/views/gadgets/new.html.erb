@@ -1,10 +1,13 @@
 
 <div class="container">
-<h1>Add your gadget to be listed</h1>
+<h1>List your gadget!</h1>
   <%= simple_form_for [@gadget] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :name, label: "Gadget's name:" %>
+  <%= f.input :description, label: "Add a brief decription of the gadget:" %>
+  <%= f.input :address, label: "Add your location:" %>
+  <br>
   <%= f.input :photo, as: :file %>
+  <br>
   <%= f.submit "Submit listing", class: "btn btn-primary" %>
   <% end %>
 </div>

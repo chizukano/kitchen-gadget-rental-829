@@ -24,6 +24,7 @@ class GadgetsController < ApplicationController
 
   def new
     @gadget = Gadget.new
+    @gadget.owner = current_user
     authorize @gadget
   end
 
@@ -42,6 +43,6 @@ class GadgetsController < ApplicationController
   private
 
   def gadget_params
-    params.require(:gadget).permit(:name, :description, :photo)
+    params.require(:gadget).permit(:name, :description, :photo, :address)
   end
 end
