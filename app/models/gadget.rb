@@ -7,6 +7,8 @@ class Gadget < ApplicationRecord
   delegate :address, to: :owner
   before_create :geocode
 
+  accepts_nested_attributes_for :owner
+
   # def address
   #   owner.address
   # end

@@ -1,8 +1,11 @@
 .cards {
+  display: flex-grow 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  text-decoration:none;
+  padding: 16px;
+  text-decoration: none;
+  width: 70%;
 }
 
 // Smallest device
