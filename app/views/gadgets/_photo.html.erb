@@ -1,5 +1,5 @@
 <% if photo.attached? %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% else %>
-  <%= image_tag "http://place-hold.it/400x300?text=No Image" %>
+  <%= image_tag "http://place-hold.it/400x300?text=No Image", height: 300, width: 400, crop: :fill, class: "img-fluid" %>
 <% end %>
