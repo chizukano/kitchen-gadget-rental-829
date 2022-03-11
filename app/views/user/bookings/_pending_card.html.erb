@@ -1,7 +1,7 @@
 <h3 class="h6">Pending Requests:</h3 >
   <% current_user.owner_bookings.pending.each do |booking| %>
     <div class="pending-card-product m-1">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <img src="<%= cl_image_path booking.gadget.photo.key, height: 100, width: 100, crop: :fill %>" />
       <div class="card-product-infos">
         <h2><%= link_to booking.gadget.name, gadget_path(booking.gadget) %></h2>
         <p class="h6">Starting in: <%= distance_of_time_in_words_to_now(booking.start_on) %></p>
