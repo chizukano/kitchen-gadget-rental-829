@@ -39,16 +39,7 @@ puts "creating 10 fake bookings"
 10.times do
   booking = Booking.create!(
     start_on: Faker::Date.between(from: '2022-03-01', to: '2022-03-31'),
-    end_on: Faker::Date.between(from: '2022-04-01', to: '2022-04-30'),
-    gadget: gadgets.sample,
-    customer: customers.sample,
-  )
-  booking.save!
-end
-2.times do
-  booking = Booking.create!(
-    start_on: Faker::Date.between(from: '2022-03-01', to: '2022-03-03'),
-    end_on: Faker::Date.between(from: '2022-03-04', to: '2022-03-08'),
+    end_on: Faker::Date.between(from: '2022-03-05', to: '2022-04-30'),
     gadget: gadgets.sample,
     customer: customers.sample,
   )
