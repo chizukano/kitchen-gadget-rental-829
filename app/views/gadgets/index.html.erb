@@ -9,15 +9,13 @@
         >
           <%= gadget.name %>
 
-          <div class="card-details">
-            <%= gadget.description %>
+          <div class="card-details p-3">
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-
-    <div id="map"
+  <div id="map"
     <%# style="width: 70%; height: 300px" %>
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
